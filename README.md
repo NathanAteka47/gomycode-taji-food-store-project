@@ -1,105 +1,110 @@
-# 🛍️ Taji Food Store
+## 🛍️ Taji Food Store
 
-A full-featured e-commerce food delivery app built with the **MERN stack** and designed to scale. Users can browse meals, add items to their cart, check out, and track orders in real time. Admins can manage food items, orders, and customers through a dedicated admin dashboard.
-
----
-
-## 🔗 Project Info
-
-- **Project Name**: Taji Food Store  
-- **Author**: [Nathan Ateka](mailto:nathanateka81@gmail.com)  
-- **GitHub Repo**: [gomycode-taji-food-store-project](https://github.com/NathanAteka47/gomycode-taji-food-store-project)  
-- **Email**: nathanateka81@gmail.com
+A full-featured, scalable food ecommerce web app built with the **MERN stack**, supporting customers and admins for meal ordering, delivery tracking, and product management.
 
 ---
 
-## 🧰 Tech Stack
+### 📘 Project Information
 
-### 🌐 Frontend (React + TypeScript + Tailwind)
-- React.js (with Vite)
-- TypeScript
-- Tailwind CSS
-- React Router DOM
-- Axios
-- Redux Toolkit *(optional)*
-
-### 🛠 Backend (Node + Express + MongoDB + TypeScript)
-- Node.js
-- Express.js
-- TypeScript
-- MongoDB
-- Mongoose
-- JWT (Authentication)
-- Bcrypt.js (Password Hashing)
-- Multer/Cloudinary (Image Upload)
+* **Project Name**: Taji Food Store
+* **Author**: Nathan Ateka
+* **Email**: [nathanateka81@gmail.com](mailto:nathanateka81@gmail.com)
+* **GitHub Repo**: [gomycode-taji-food-store-project](https://github.com/NathanAteka47/gomycode-taji-food-store-project)
 
 ---
 
-## 📁 Folder Structure
+### 📅 Project Plan – 7-Day Timeline
+
+| Day | Task                       | Description                                                |
+| --- | -------------------------- | ---------------------------------------------------------- |
+| 1   | Project Setup              | Folder structure, TypeScript configs, install dependencies |
+| 2   | Backend APIs               | Set up MongoDB models, Express routes, controller logic    |
+| 3   | Frontend Pages             | Setup with Vite + Tailwind + React Router, page layout     |
+| 4   | Auth System                | JWT auth for users and admins                              |
+| 5   | Cart & Order Flow          | Cart logic, checkout, order model and routes               |
+| 6   | Admin Dashboard            | CRUD for products/orders, Cloudinary image upload          |
+| 7   | Final Testing & Deployment | Mobile responsiveness, bug fixes, deploy on Vercel/Render  |
+
+---
+
+### 🧰 Tech Stack
+
+#### Frontend:
+
+* React.js (with Vite)
+* TypeScript
+* Tailwind CSS
+* React Router DOM
+* Axios
+* Redux Toolkit (optional)
+
+#### Backend:
+
+* Node.js
+* Express.js
+* TypeScript
+* MongoDB (via Mongoose)
+* JWT + Bcrypt for Auth
+* Multer & Cloudinary for media
+
+---
+
+### 🗂 Folder Structure
 
 ```
-
 gomycode-taji-food-store-project/
+├── client/              # React Frontend
+│   └── src/
+│       ├── assets/
+│       ├── components/
+│       ├── pages/
+│       ├── services/
+│       ├── store/
+│       ├── types/
+│       └── App.tsx
 │
-├── client/                  # Frontend app
-│   ├── public/
-│   ├── src/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   ├── store/
-│   │   ├── types/
-│   │   └── App.tsx
-│   └── tailwind.config.js
-│
-├── server/                  # Backend API
-│   ├── src/
-│   │   ├── config/
-│   │   ├── controllers/
-│   │   ├── middleware/
-│   │   ├── models/
-│   │   ├── routes/
-│   │   └── app.ts
-│   └── tsconfig.json
+├── server/              # Node/Express Backend
+│   └── src/
+│       ├── config/
+│       ├── controllers/
+│       ├── middleware/
+│       ├── models/
+│       ├── routes/
+│       ├── utils/
+│       └── app.ts
 │
 ├── .env
 └── README.md
-
-````
-
----
-
-## ⚙️ Setup Instructions
-
-### ✅ Prerequisites
-
-- Node.js (v18+)
-- MongoDB or MongoDB Atlas
-- Git
-- VS Code or another IDE
+```
 
 ---
 
-### 🔧 Installation & Running the App
+### ⚙️ Setup Instructions
 
-#### 1. Clone the Repository
+#### Prerequisites:
+
+* Node.js (v18+)
+* MongoDB or MongoDB Atlas
+* Git
+* VS Code
+
+#### 1. Clone & Install
 
 ```bash
 git clone https://github.com/NathanAteka47/gomycode-taji-food-store-project.git
 cd gomycode-taji-food-store-project
-````
+```
 
-#### 2. Setup Backend
+#### 2. Backend Setup
 
 ```bash
 cd server
 npm install
-cp .env.example .env        # Update with your actual environment variables
+cp .env.example .env
 npm run dev
 ```
 
-#### 3. Setup Frontend
+#### 3. Frontend Setup
 
 ```bash
 cd ../client
@@ -109,19 +114,19 @@ npm run dev
 
 ---
 
-## 🔐 Environment Variables
+### 🔐 Environment Variables
 
-### Backend (`server/.env`)
+#### Server `.env`
 
 ```
 PORT=5000
 MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/tajifood
 JWT_SECRET=your_jwt_secret
-CLOUDINARY_API_KEY=your_key
-CLOUDINARY_SECRET=your_secret
+CLOUDINARY_API_KEY=xxx
+CLOUDINARY_SECRET=xxx
 ```
 
-### Frontend (`client/.env`)
+#### Client `.env`
 
 ```
 VITE_API_BASE_URL=http://localhost:5000/api
@@ -129,56 +134,118 @@ VITE_API_BASE_URL=http://localhost:5000/api
 
 ---
 
-## ✅ Features
+### 🧱 Database Models (MongoDB)
 
-### 👨‍🍳 User Features
+#### User Model
 
-* Browse food items by category
-* View product details
-* Add/remove from cart
-* Register/login with JWT
-* Checkout with payments
-* View order status
+```ts
+name: string;
+email: string;
+password: string (hashed);
+role: 'user' | 'admin';
+createdAt, updatedAt
+```
 
-### 🧑‍💼 Admin Features
+#### Product Model
 
-* Admin login
-* Create/update/delete food items
-* Order management (status updates)
-* View all users and orders
-* Upload product images via Cloudinary
+```ts
+title: string;
+description: string;
+price: number;
+category: string;
+imageUrl: string;
+available: boolean;
+createdAt, updatedAt
+```
 
----
+#### Order Model
 
-## 📅 7-Day Project Plan
-
-| Day | Focus Area              | Description                                                            |
-| --- | ----------------------- | ---------------------------------------------------------------------- |
-| 1   | Boilerplate             | Setup client & server folders, install dependencies, TypeScript config |
-| 2   | Backend Models & Routes | Create MongoDB models and REST API endpoints                           |
-| 3   | Frontend Pages          | Build out main pages (Home, Cart, Login, Register, Product Details)    |
-| 4   | Authentication          | Implement JWT login/register for users                                 |
-| 5   | Cart & Order Flow       | Add cart functionality and order placement                             |
-| 6   | Admin Dashboard         | Build admin routes, upload image system                                |
-| 7   | Testing & Deployment    | Final testing, responsiveness, deploy (Render/Vercel)                  |
-
----
-
-## 🚀 Future Enhancements
-
-* SMS or Email notifications
-* Mobile app version (React Native)
-* Real-time chat or support
-* Discount & coupon system
-* In-app wallet integration
-* Progressive Web App (PWA) support
+```ts
+userId: ObjectId;
+items: [
+  { productId: ObjectId, quantity: number }
+];
+total: number;
+paymentMethod: 'mpesa' | 'card';
+status: 'pending' | 'processing' | 'delivered';
+createdAt, updatedAt
+```
 
 ---
 
-## 📞 Contact
+### 📡 API Endpoints
 
-For questions or collaboration:
+#### 🔐 Auth Routes
+
+| Method | Endpoint             | Description             |
+| ------ | -------------------- | ----------------------- |
+| POST   | `/api/auth/register` | Register user           |
+| POST   | `/api/auth/login`    | Login + JWT             |
+| GET    | `/api/auth/profile`  | Authenticated user info |
+
+#### 👤 User Routes
+
+\| GET | `/api/users` | Admin: Get all users |
+\| GET | `/api/users/:id` | Get single user |
+\| DELETE | `/api/users/:id` | Admin: Delete user |
+
+#### 🍔 Product Routes
+
+\| GET | `/api/products` | Get all products |
+\| GET | `/api/products/:id` | Get product |
+\| POST | `/api/products` | Admin: Add product |
+\| PUT | `/api/products/:id` | Admin: Update product |
+\| DELETE | `/api/products/:id` | Admin: Delete product |
+
+#### 📦 Order Routes
+
+\| GET | `/api/orders` | Admin: Get all orders |
+\| GET | `/api/orders/my` | Get user orders |
+\| POST | `/api/orders` | Create order |
+\| PUT | `/api/orders/:id` | Admin: Update order status |
+
+#### 🖼️ Upload Routes
+
+\| POST | `/api/upload` | Upload image (Cloudinary) |
+
+---
+
+### 🧪 Example API Call (Axios)
+
+```ts
+const res = await axios.post('/api/auth/login', {
+  email: 'user@example.com',
+  password: 'password123'
+});
+localStorage.setItem('token', res.data.token);
+```
+
+---
+
+### 🧼 Security
+
+* All passwords are hashed with Bcrypt
+* JWT is used for secure access tokens
+* Auth middleware protects routes
+* Admin check for restricted access
+
+---
+
+### 📈 Future Improvements
+
+* Real-time notifications
+* Email confirmations
+* Mobile app (React Native)
+* Coupons & discounts
+* Chat support for users
+
+---
+
+### 📞 Contact
 
 * **Name**: Nathan Ateka
 * **Email**: [nathanateka81@gmail.com](mailto:nathanateka81@gmail.com)
-* **GitHub**: [github.com/NathanAteka47](https://github.com/NathanAteka47)
+* **GitHub**: [NathanAteka47](https://github.com/NathanAteka47)
+* **Project Repo**: [Taji Food Store](https://github.com/NathanAteka47/gomycode-taji-food-store-project)
+
+> Built with ❤️ by Nathan Ateka for GoMyCode Kenya
