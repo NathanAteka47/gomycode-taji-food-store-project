@@ -1,19 +1,20 @@
-import './App.css'
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRoutes from './routes/AppRoutes';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <>
-      <div>
-      <h1>Taji Food Store</h1>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          <AppRoutes />
+        </main>
+        <Footer />
       </div>
-      <p className="read-the-docs">
-        Traditional Meals
-      </p>
-      <div>
-      <img src="/logo.png" alt="" />
-      </div>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
